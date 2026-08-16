@@ -31,6 +31,24 @@ To define their full names, add a `people` collection. This is optional—people
 +    fullname: Marjorie Bouvier Simpson
 ```
 
+## Defining dates and places
+
+You can add birth and death information to any person. Dates must be in ISO 8601 format (`YYYY-MM-DD`). An error is thrown if the death date is before the birth date.
+
+```diff
+ people:
+   Marge:
+     fullname: Marjorie Bouvier Simpson
++  Homer:
++    fullname: Homer Simpson
++    born: 1956-05-12
++    birthplace: Springfield
++    died: 2024-03-01
++    deathplace: Springfield Hospital
+```
+
+All four fields are optional and independent of each other.
+
 ## Second generations
 
 To create second generations, you can simply add another record to `families`.

@@ -10,6 +10,10 @@
 - **[people](#person)**
   - [name](#name)
   - [fullname](#fullname)
+  - [born](#born)
+  - [died](#died)
+  - [birthplace](#birthplace)
+  - [deathplace](#deathplace)
   - [links](#links)
   - [class](#class)
 - **[styles](#styles)**
@@ -108,13 +112,14 @@ You can nest families inside other families. See [house](#house) for an example.
 Defines metadata for a person. All parameters are optional.
 
 ```yaml
-# Nope, he's not dead, he's just here as an example ;)
 people:
   Ned:
     name: Ned
     fullname: Eddard Stark
-    born: 1950
-    died: 1966
+    born: 1961-05-04
+    birthplace: Winterfell
+    died: 1998-11-12
+    deathplace: King's Landing
     class: [deceased]
 ```
 
@@ -125,6 +130,22 @@ A person's name. If not present, then the person's ID will be used by default.
 ### fullname
 
 A person's full name. Will be displayed in gray text.
+
+### born
+
+A birth date in ISO 8601 format (`YYYY-MM-DD`). Displayed in gray text prefixed with `*`.
+
+### died
+
+A death date in ISO 8601 format (`YYYY-MM-DD`). Displayed in gray text prefixed with `†`.
+
+### birthplace
+
+A place of birth. Displayed in gray text next to the birth date (or alone if `born` is not set).
+
+### deathplace
+
+A place of death. Displayed in gray text next to the death date (or alone if `died` is not set).
 
 ### links
 
