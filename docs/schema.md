@@ -16,6 +16,10 @@
   - [deathplace](#deathplace)
   - [links](#links)
   - [class](#class)
+- **[properties](#property)**
+  - [name](#property-name)
+  - [transfers](#transfers)
+  - [class](#property-class)
 - **[styles](#styles)**
 
 ## Family
@@ -154,6 +158,62 @@ An array of links. Use this to link to a person's Facebook account. If given, th
 ### class
 
 A list of classes for styles. These will be applied to nodes. See [styles](#styles) for more information.
+
+## Property
+
+> `properties` (Property[])
+
+A list of properties (eg, a farm, house or other estate) whose ownership is passed down through the family. Each property is drawn as a small labeled node with dashed, dated arrows connecting each owner to the next.
+
+```yaml
+properties:
+  - name: Simpson Family Farm
+    transfers:
+      - to: Abe
+        date: 1955-03-01
+        note: Purchased
+      - from: Abe
+        to: Homer
+        date: 1990-07-04
+        note: Inherited
+      - from: Homer
+        to: Bart
+        date: 2025-01-01
+```
+
+### Property name
+
+> `properties[].name` (String)
+
+The name of the property. Displayed on its origin node, and used to identify it in error messages.
+
+### transfers
+
+> `properties[].transfers` (Transfer[])
+
+An ordered list of ownership transfers, each with `to` (required), `from` (optional) and `date` (optional).
+
+- `to` — the person ID receiving the property.
+- `from` — the person ID the property is transferred from. If omitted, it defaults to the previous transfer's `to` (i.e. the chain continues automatically); on the very first transfer, omitting it draws the arrow from the property's own origin node instead of another person, representing how it was first acquired.
+- `date` — the date of the transfer, in ISO 8601 format (`YYYY-MM-DD`). Shown as the edge's label. Transfers within a chain must be in chronological order; kingraph will throw an error otherwise.
+- `note` — an optional short note (eg `Purchased`, `Inherited`, `Sold`) shown underneath the date.
+
+```yaml
+properties:
+  - name: Lake House
+    transfers:
+      - to: Ned
+        date: 1980-01-01
+      # `from` is inferred as "Ned" since it continues the chain
+      - to: Catelyn
+        date: 2005-04-10
+```
+
+### Property class
+
+> `properties[].class` (String[])
+
+A list of classes for styles, applied to both the property's origin node and its transfer edges. See [styles](#styles). The default styles for these are the `:property` and `:property-link` classes.
 
 ## Styles
 

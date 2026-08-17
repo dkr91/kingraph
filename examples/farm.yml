@@ -1,0 +1,53 @@
+## Example: showing a farm/property being passed down through a family,
+## along with the dates it changed hands.
+
+families:
+  - parents: [Abe, Mona]
+    children: [Homer]
+  - parents: [Homer, Marge]
+    children: [Bart, Lisa, Maggie]
+
+people:
+  Abe:
+    name: Abe
+    fullname: Abraham Simpson
+    born: 1918-04-15
+  Mona:
+    name: Mona
+    fullname: Mona Simpson
+    born: 1922-02-01
+  Homer:
+    name: Homer
+    fullname: Homer Simpson
+    born: 1956-05-12
+  Marge:
+    name: Marge
+    fullname: Marjorie Simpson
+    born: 1956-10-01
+  Bart:
+    name: Bart
+    fullname: Bart Simpson
+    born: 1980-04-01
+  Lisa:
+    name: Lisa
+    fullname: Lisa Simpson
+    born: 1981-05-09
+  Maggie:
+    name: Maggie
+    fullname: Maggie Simpson
+    born: 1985-01-14
+
+properties:
+  - name: Simpson Family Farm
+    transfers:
+      - to: Abe
+        date: 1955-03-01
+        note: Purchased
+      - from: Abe
+        to: Homer
+        date: 1990-07-04
+        note: Inherited
+      - from: Homer
+        to: Bart
+        date: 2025-01-01
+        note: Inherited
