@@ -59,6 +59,14 @@ Source: *[got.yml](examples/got.yml)*
 > ![](examples/got.png)
 </details>
 
+<details>
+<summary><b>Farm transfer</b> (property/farm ownership over time)</summary>
+
+Source: *[farm.yml](examples/farm.yml)*
+
+> ![](examples/farm.png)
+</details>
+
 Getting started
 ---------------
 
