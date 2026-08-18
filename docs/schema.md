@@ -5,6 +5,8 @@
   - [children](#children)
   - [parents2](#parents2)
   - [children2](#children2)
+  - [married](#married)
+  - [divorced](#divorced)
   - [house](#house)
   - [families](#families)
 - **[people](#person)**
@@ -87,6 +89,26 @@ A list of children. Use this to express atypical offspring lineage, such as adop
   children: [Rob, Rickon, Arya, Sansa]
   children2: [Jon]
 ```
+
+### married
+
+> `families[].married` (Date)
+
+The date the parents were married, in ISO 8601 format (`YYYY-MM-DD`). Displayed as a small `⚭` label on the family's union point. This is independent of `children` — it can be set on a family with or without children.
+
+```yaml
+families:
+  - parents: [Ned, Catelyn]
+    married: 1979-05-20
+    divorced: 1985-11-02
+    children: [Rob, Rickon, Arya, Sansa]
+```
+
+### divorced
+
+> `families[].divorced` (Date)
+
+The date the parents were divorced, in ISO 8601 format (`YYYY-MM-DD`). Displayed as a small `⚮` label on the family's union point, alongside `married` if given. If both are set, `divorced` must not be before `married`. See [married](#married) for an example.
 
 ### house
 
