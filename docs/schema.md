@@ -110,6 +110,21 @@ families:
 
 The date the parents were divorced, in ISO 8601 format (`YYYY-MM-DD`). Displayed as a small `⚮` label on the family's union point, alongside `married` if given. If both are set, `divorced` must not be before `married`. See [married](#married) for an example.
 
+There is no `widowed` field — widowhood is inferred automatically. Whenever a family has two or more `parents`/`parents2` and isn't `divorced`, kingraph checks their [`died`](#died) dates and, if one of them has died, labels the union point with `† Widowed <date>` (the earliest death date, i.e. when the survivor was widowed). A `divorced` family is never shown as widowed, even if a former spouse later died.
+
+```yaml
+families:
+  - parents: [Ned, Catelyn]
+    married: 1979-05-20
+    children: [Rob, Rickon, Arya, Sansa]
+
+people:
+  Ned: {}
+  # Catelyn's death is enough to show "† Widowed 1998-11-12" on the union point.
+  Catelyn:
+    died: 1998-11-12
+```
+
 ### house
 
 > `families[].house` (String)
